@@ -1,0 +1,37 @@
+puts "\t*****************************"
+puts "\t*       GUESSING GAME!      *"
+puts "\t*---------------------------*"
+puts "\t*  The computer wil pick a  *"
+puts "\t* random number between 1 & *"
+puts "\t* 100, and will ask you to  *"
+puts "\t*    guess that number.     *"
+puts "\t*---------------------------*"
+puts "\t*****************************"
+ans = ''
+until ans == 'n' do
+	@@num_tries = ''
+	@@num_tries = @@num_tries.to_i
+	number = rand(100) + 1
+	guess = ''
+	puts "Guess a number between 1 and 100."
+	until guess == number do
+	  @@num_tries +=1
+	  print "-->"
+	  guess = gets.to_f
+      if guess < number and guess >= 1 then puts "Too low; try again."
+      elsif guess > number and guess <= 100 then puts "Too high; try again."
+      elsif guess.to_s == '' then puts "Invalid Response."
+      elsif guess == number  then nil
+      elsif guess == 'q' then 
+      else puts "Invalid Response; please enter a number between 1 and 100."
+	  end	
+	end
+	puts "Correct! The number was #{number}."
+	puts "It took you #{@@num_tries} tries to guess the number."
+	puts "Would you like to play again? (y/n)"
+	ans = gets.downcase.chomp
+end
+end
+
+puts "Bye!"
+
